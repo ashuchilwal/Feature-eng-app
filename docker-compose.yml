@@ -1,0 +1,14 @@
+version: '3.1' # Version of the Docker Compose 
+
+services:
+
+  streamlit-app: # The name of your service
+    container_name: streamlit_container # Naming the container
+    build: 
+      context: .  # The current directory contains the Dockerfile
+    ports:
+      - "8501:8501" # Mapping the ports
+    volumes:
+      - .:/usr/src/app  # Mapping the current directory to the working directory in the container
+    command: streamlit run app.py # Command to run the Streamlit app
+  
